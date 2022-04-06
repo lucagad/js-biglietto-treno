@@ -49,6 +49,7 @@ if (etaCliente > 65){
 }
 
 prezzoScontato = prezzoScontato.toFixed(2);
+scontoDaApplicare = scontoDaApplicare.toFixed(2);
 
 console.log("Sconto da Applicare:", scontoDaApplicare);
 console.log("Prezzo scontato:", prezzoScontato);
