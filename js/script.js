@@ -16,3 +16,39 @@ L’output del prezzo finale va messo fuori in forma umana (con massimo due deci
 
 */
 
+const kmTotali = parseFloat(prompt("Inserisci i Km da percorrere"));
+const etaCliente = parseInt(prompt("Inserisci la tua età"));
+
+console.log("Km Totali:", kmTotali);
+console.log("Età:", etaCliente);
+
+const costoKm = 0.21;
+
+const prezzoSenzaSconti = kmTotali * costoKm;
+
+console.log("Costo al Km:", costoKm);
+console.log("Prezzo senza sconti:", prezzoSenzaSconti);
+
+let prezzoScontato, scontoDaApplicare;
+
+if (etaCliente > 65){
+
+  scontoDaApplicare = (prezzoSenzaSconti/100) * 40 ;
+  prezzoScontato = prezzoSenzaSconti - scontoDaApplicare;
+
+} else if (etaCliente < 18){
+
+  scontoDaApplicare = (prezzoSenzaSconti/100) * 20 ;
+  prezzoScontato = prezzoSenzaSconti - scontoDaApplicare;
+
+} else { 
+  scontoDaApplicare= 0;
+  prezzoScontato = prezzoSenzaSconti - scontoDaApplicare;
+
+}
+
+prezzoScontato = prezzoScontato.toFixed(2);
+
+console.log("Sconto da Applicare:", scontoDaApplicare);
+console.log("Prezzo scontato:", prezzoScontato);
+
