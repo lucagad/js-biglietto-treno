@@ -1,0 +1,38 @@
+
+header{
+  background-color: #011533;
+  height: 70px;
+}
+
+main{
+  height: calc(100vh - 140px);
+  overflow: auto;
+}
+
+
+.nav_boolean span{
+  color: white;
+}
+
+.nav_boolean_element .nav-link{
+  color: #00da63;
+}
+
+.nav_boolean_element .nav-link.active{
+  background-color: #00da63;
+}
+
+#riepilogo-box ul{
+  list-style: none !important;
+}
+
+
+footer{
+  background-color: #011533;
+  color: #00da63;
+  height: 70px;
+}
+
+footer .nav-link{
+  color: #00da63;
+}

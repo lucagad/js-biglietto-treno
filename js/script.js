@@ -18,6 +18,7 @@ L’output del prezzo finale va messo fuori in forma umana (con massimo due deci
 
 const kmTotali = parseFloat(prompt("Inserisci i Km da percorrere"));
 const etaCliente = parseInt(prompt("Inserisci la tua età"));
+const nomeCliente = prompt("Inserisci il tuo nome");
 
 console.log("Km Totali:", kmTotali);
 console.log("Età:", etaCliente);
@@ -52,3 +53,54 @@ prezzoScontato = prezzoScontato.toFixed(2);
 console.log("Sconto da Applicare:", scontoDaApplicare);
 console.log("Prezzo scontato:", prezzoScontato);
 
+document.getElementById("riepilogo-intro").innerHTML =
+`
+  Caro ${nomeCliente}, <br> in base ai dati inseriti che trova riepilogati a seguire:
+`;
+
+
+
+if (etaCliente > 65){
+
+  document.getElementById("riepilogo-box").innerHTML +=
+  `
+    <ul>
+      <li id="km-list-item">Km da percorrere: ${kmTotali}</li>
+      <li id="age-list-item">Età cliente: ${etaCliente}</li>
+    </ul>
+    <p class="lead mb-1 fw-bold">Il costo del suo biglietto è di: ${prezzoScontato} &euro;</p>
+    <span class="mb-4">Il costo finale tiene conto dello sconto del 40&percnt; (${scontoDaApplicare}&euro;)</span>
+    
+  `;
+  scontoDaApplicare = (prezzoSenzaSconti/100) * 40 ;
+  prezzoScontato = prezzoSenzaSconti - scontoDaApplicare;
+
+} else if (etaCliente < 18){
+
+  document.getElementById("riepilogo-box").innerHTML +=
+  `
+    <ul>
+      <li id="km-list-item">Km da percorrere: ${kmTotali}</li>
+      <li id="age-list-item">Età cliente: ${etaCliente}</li>
+    </ul>
+    <p class="lead mb-1 fw-bold">Il costo del suo biglietto è di: ${prezzoScontato} &euro;</p>
+    <span class="mb-4">Il costo finale tiene conto dello sconto del 20&percnt; (${scontoDaApplicare}&euro;)</span>
+    
+  `;
+  scontoDaApplicare = (prezzoSenzaSconti/100) * 20 ;
+  prezzoScontato = prezzoSenzaSconti - scontoDaApplicare;
+
+} else { 
+
+  document.getElementById("riepilogo-box").innerHTML +=
+  `
+    <ul>
+      <li id="km-list-item">Km da percorrere: ${kmTotali}</li>
+      <li id="age-list-item">Età cliente: ${etaCliente}</li>
+    </ul>
+    <p class="lead mb-1 fw-bold">Il costo del suo biglietto è di: ${prezzoScontato} &euro;</p>
+  `;
+  scontoDaApplicare= 0;
+  prezzoScontato = prezzoSenzaSconti - scontoDaApplicare;
+
+}
